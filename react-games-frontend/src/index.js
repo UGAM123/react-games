@@ -30,21 +30,22 @@ const theme = extendTheme({
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
-      <Route path="/react-games">
-        <Route path="games" element={<App />}>
-          <Route path="home" element={<Home />} />
-          <Route path="magic-memory" element={<MagicMemory />} />
-          <Route path="2048" element={<Game2048 />} />
-          <Route path="snake" element={<Snake />} />
-          <Route path="tic-tac-toe" element={<TicTacToe />} />
-          <Route path="" element={<Navigate to="/react-games/games/home" />} />
-        </Route>
-        <Route path="" element={<Navigate to="/react-games/home" />} />
-        <Route path="login" element={<Login />} />
-        <Route path="*" element={<PageNotFound />} />
+      <Route path="games" element={<App />}>
+        <Route path="home" element={<Home />} />
+        <Route path="magic-memory" element={<MagicMemory />} />
+        <Route path="2048" element={<Game2048 />} />
+        <Route path="snake" element={<Snake />} />
+        <Route path="tic-tac-toe" element={<TicTacToe />} />
+        <Route path="" element={<Navigate to="/react-games/games/home" />} />
       </Route>
+      <Route path="" element={<Navigate to="/react-games/games/home" />} />
+      <Route path="login" element={<Login />} />
+      <Route path="*" element={<PageNotFound />} />
     </Route>
-  )
+  ),
+  {
+    basename: "/react-games",
+  }
 );
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

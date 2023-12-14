@@ -75,7 +75,7 @@ function Login() {
                 style={{ width: "80%" }}
                 onClick={() => checkInputs()}
               >
-                Enter
+                Submit
               </Button>
             </TabPanel>
           </TabPanels>
