@@ -58,6 +58,20 @@ function Messaging() {
     //Get connected Users
     findAndDisplayConnectedUsers().then();
   };
+  const onDisConnect = () => {
+    setStompClient((prevClient) => {
+      //register Connected user
+      prevClient.send(
+        "/app/user.disconnectUser",
+        {},
+        JSON.stringify({
+          nickName: data.userName,
+          fullName: data.fullNameOrEmail,
+          status: "OFFLINE",
+        })
+      );
+    });
+  };
 
   const onError = (err) => {
     console.error(err);
@@ -193,6 +207,9 @@ function Messaging() {
   };
 
   useEffect(() => {
+    const imageElement = document.querySelector(".msg-icon");
+    imageElement.addEventListener("click", onOpen);
+
     if (data.userName === "") {
       navigate("/login");
     } else {
@@ -206,12 +223,10 @@ function Messaging() {
         return prevClient;
       });
     }
+
+    window.addEventListener("beforeunload", onDisConnect);
   }, []);
 
-  useEffect(() => {
-    const imageElement = document.querySelector(".msg-icon");
-    imageElement.addEventListener("click", onOpen);
-  }, []);
   return (
     <div>
       <img
@@ -231,7 +246,9 @@ function Messaging() {
             >
               ←
             </button>
-            <p style={{ margin: "auto" }}>{selectedUser}</p>
+            <p style={{ margin: "auto" }}>
+              {selectedUser === "" ? "Chats" : selectedUser}
+            </p>
             <DrawerCloseButton style={{ margin: "10px" }} />
           </DrawerHeader>
 
