@@ -65,7 +65,12 @@ function Messaging() {
   const onMessageReceived = (message) => {
     const body = JSON.parse(message.body);
     console.log("Body : ", body);
-    displayMessage(body.senderId, body.content);
+    if (body.senderId == selectedUser && "content" in body) {
+      displayMessage(body.senderId, body.content);
+    }
+    if ("status" in body) {
+      findAndDisplayConnectedUsers();
+    }
   };
   const specificChatsView = (event) => {
     const allChats = document.getElementById("all-chats");
@@ -108,7 +113,9 @@ function Messaging() {
     }
   };
   const findAndDisplayConnectedUsers = async () => {
-    const connectedUserResponse = await fetch("https://react-games-bbt8.onrender.com/users");
+    const connectedUserResponse = await fetch(
+      "https://react-games-bbt8.onrender.com/users"
+    );
     let connectedUsers = await connectedUserResponse.json();
     connectedUsers = connectedUsers.filter(
       (user) => user.nickName !== data.userName
@@ -131,8 +138,14 @@ function Messaging() {
 
   const displayMessage = (senderId, content, timestamp) => {
     const chatArea = document.querySelector(".chats-window");
-    const shortFormDate = new Date(timestamp).toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
-    const shortFormTime = new Date(timestamp).toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' });
+    const shortFormDate = new Date(timestamp).toLocaleDateString(undefined, {
+      month: "short",
+      day: "numeric",
+    });
+    const shortFormTime = new Date(timestamp).toLocaleTimeString(undefined, {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
     const dateTime = `${shortFormTime}~${shortFormDate}`;
 
     const messageContainer = (
