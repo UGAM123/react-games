@@ -64,10 +64,17 @@ function Messaging() {
   };
   const onMessageReceived = (message) => {
     const body = JSON.parse(message.body);
+    const targetUser = localStorage.getItem("targetUser");
+    const timeStamp = new Date().toISOString();
     console.log("Body : ", body);
-    if (body.senderId == selectedUser && "content" in body) {
-      displayMessage(body.senderId, body.content);
+    console.log("Selected User : ", targetUser);
+    console.log("Selected User : ", messages);
+    if (targetUser) {
+      if (body.senderId === targetUser && "content" in body) {
+        displayMessage(body.senderId, body.content, timeStamp);
+      }
     }
+
     if ("status" in body) {
       findAndDisplayConnectedUsers();
     }
@@ -80,6 +87,7 @@ function Messaging() {
     specificChat.style.display = "block";
     backButton.style.display = "block";
 
+    localStorage.setItem("targetUser", event.currentTarget.id);
     setSelectedUser(event.currentTarget.id);
     fetchAndDisplayUserChat(event.currentTarget.id).then();
   };
@@ -92,11 +100,12 @@ function Messaging() {
     allChats.style.display = "block";
     specificChat.style.display = "none";
     backButton.style.display = "none";
+
+    setSelectedUser("");
   };
 
   const sendMessage = () => {
     const messageContent = document.getElementById("chat-message");
-    console.log(stompClient);
     if (messageContent !== "" && stompClient.connected) {
       console.log("Sending Message");
       const chatMessage = {
@@ -107,7 +116,11 @@ function Messaging() {
       };
       stompClient.send("/app/chat", {}, JSON.stringify(chatMessage));
 
-      displayMessage(data.userName, messageContent.value.trim());
+      displayMessage(
+        data.userName,
+        messageContent.value.trim(),
+        new Date().toISOString()
+      );
       messageContent.value = "";
       messageContent.focus();
     }
@@ -138,14 +151,28 @@ function Messaging() {
 
   const displayMessage = (senderId, content, timestamp) => {
     const chatArea = document.querySelector(".chats-window");
-    const shortFormDate = new Date(timestamp).toLocaleDateString(undefined, {
-      month: "short",
-      day: "numeric",
-    });
-    const shortFormTime = new Date(timestamp).toLocaleTimeString(undefined, {
-      hour: "2-digit",
-      minute: "2-digit",
-    });
+    let shortFormDate = "";
+    let shortFormTime = "";
+    if (timestamp) {
+      shortFormDate = new Date(timestamp).toLocaleDateString(undefined, {
+        month: "short",
+        day: "numeric",
+      });
+      shortFormTime = new Date(timestamp).toLocaleTimeString(undefined, {
+        hour: "2-digit",
+        minute: "2-digit",
+      });
+    } else {
+      shortFormDate = new Date().toLocaleDateString(undefined, {
+        month: "short",
+        day: "numeric",
+      });
+      shortFormTime = new Date().toLocaleTimeString(undefined, {
+        hour: "2-digit",
+        minute: "2-digit",
+      });
+    }
+
     const dateTime = `${shortFormTime}~${shortFormDate}`;
 
     const messageContainer = (
@@ -204,7 +231,7 @@ function Messaging() {
             >
               ←
             </button>
-            <p style={{ margin: "auto" }}>Chats</p>
+            <p style={{ margin: "auto" }}>{selectedUser}</p>
             <DrawerCloseButton style={{ margin: "10px" }} />
           </DrawerHeader>
 
