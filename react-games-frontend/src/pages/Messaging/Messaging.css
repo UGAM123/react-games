@@ -1,0 +1,146 @@
+.msg-icon {
+  position: fixed;
+  right: 30px;
+  bottom: 20px;
+  transform: scaleX(-1);
+  width: 80px;
+}
+
+.msg-icon:hover {
+  transform: scale(-1.2, 1.2);
+}
+
+.chat-box {
+  display: none;
+  position: absolute;
+  right: 30px;
+  bottom: 40px;
+  z-index: 10;
+  width: 400px;
+  height: 500px;
+  background-color: rgb(230, 217, 217);
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px 5px white;
+}
+
+.chat-box-close {
+  position: fixed;
+  right: 45px;
+  margin: 10px 0px;
+  padding: 0;
+  background: none;
+  outline: none;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.chats-container {
+  color: white !important;
+  background: linear-gradient(90deg, rgba(40,29,56,1) 0%, rgba(61,37,90,1) 30%, rgba(75,40,119,1) 65%, rgba(76,29,135,1) 100%) !important;
+}
+
+.chat {
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  height: 100px;
+  color: white;
+}
+
+.chat-item{
+  list-style-type: none;
+}
+
+.chat-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 77px;
+}
+.chats-window{
+  margin-bottom: 10px;
+  width: 100%;
+  height: 90%;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+.chat:hover {
+  cursor: pointer;
+}
+.status-ONLINE {
+  height: 15px;
+  width: 15px;
+  background-color: lime;
+  border: 1px limegreen solid;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.status-OFFLINE {
+  height: 15px;
+  width: 15px;
+  background-color: rgba(255, 0, 0, 0.5);
+  border: 1px red solid;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.message{
+  text-align: left;
+  max-width:70%;
+  min-width: 30% !important;
+  margin: 5px 0px;
+  background-color:  rgba(76,29,135,1);
+}
+.message section{
+  margin: 0px 10px;
+  display: flex;
+  justify-content: space-between;
+  color: grey;
+  font-size: 12px;
+}
+.message section p{
+  margin: 0;
+}
+
+.sender{
+  margin-right: 0;
+  margin-left: auto;
+}
+
+@media only screen and (max-width: 400px) {
+  .msg-icon {
+    right: 10px;
+    bottom: 10px;
+    width: 40px;
+  }
+
+  .chat-box {
+    right: 10px;
+    bottom: 10px;
+    width: 250px;
+  }
+
+  .chat-box-close {
+    right: 20px;
+  }
+}
+
+@media only screen and (max-width: 800px) and (min-width: 400px) {
+  .msg-icon {
+    right: 10px;
+    bottom: 10px;
+    width: 60px;
+  }
+
+  .chat-box {
+    right: 25px;
+    bottom: 20px;
+    width: 300px;
+  }
+
+  .chat-box-close {
+    right: 40px;
+  }
+}

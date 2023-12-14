@@ -1,0 +1,18 @@
+#snake-board {
+    margin: 0 auto;
+    width: 800px;
+    height: 800px;
+    background: linear-gradient(rgb(150, 211, 150), rgb(247, 247, 177));
+    border: 5px solid white;
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+}
+
+.snake {
+    background-color: purple;
+}
+
+.food {
+    background-color: red;
+}
