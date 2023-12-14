@@ -2,9 +2,11 @@
 
 # dependencies
 /react-games-frontend/node_modules
+/react-games-frontend/build
+/react-games-backend/target
 /.pnp
 .pnp.js
-
+np
 # testing
 /coverage
 
