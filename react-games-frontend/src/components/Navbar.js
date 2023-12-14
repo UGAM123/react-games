@@ -9,7 +9,7 @@ function Navbar({ name }) {
         <Link
           className="navbar-brand text-white"
           aria-current="page"
-          to="/react-games/home"
+          to="/react-games/games/home"
         >
           Welcome {name}
         </Link>
@@ -30,7 +30,7 @@ function Navbar({ name }) {
               <Link
                 className="nav-link active text-white"
                 aria-current="page"
-                to="/react-games/home"
+                to="/react-games/games/home"
               >
                 Home
               </Link>

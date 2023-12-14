@@ -33,7 +33,7 @@ function Messaging() {
       return { userName: "" };
     }
   });
-  const socket = new SockJS("http://localhost:8080/ws");
+  const socket = new SockJS("https://react-games-bbt8.onrender.com/ws");
   const [stompClient, setStompClient] = useState(Stomp.over(socket));
 
   const onConnected = () => {
@@ -108,7 +108,7 @@ function Messaging() {
     }
   };
   const findAndDisplayConnectedUsers = async () => {
-    const connectedUserResponse = await fetch("http://localhost:8080/users");
+    const connectedUserResponse = await fetch("https://react-games-bbt8.onrender.com/users");
     let connectedUsers = await connectedUserResponse.json();
     connectedUsers = connectedUsers.filter(
       (user) => user.nickName !== data.userName
@@ -119,7 +119,7 @@ function Messaging() {
   };
   const fetchAndDisplayUserChat = async (recipientId) => {
     const userChatResponse = await fetch(
-      `http://localhost:8080/messages/${data.userName}/${recipientId}`
+      `https://react-games-bbt8.onrender.com/messages/${data.userName}/${recipientId}`
     );
     const userChat = await userChatResponse.json();
     userChat.sort((a, b) => a.timestamp - b.timestamp);
