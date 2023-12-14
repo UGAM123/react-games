@@ -17,7 +17,7 @@ function App() {
   });
   useEffect(() => {
     if (user.userName === "") {
-      navigate("/react-games/login");
+      navigate("/login");
     }
   }, []);
   return (

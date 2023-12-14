@@ -10,7 +10,7 @@ export default function SingleCard({ card, handleChoice, flipped }) {
         <img className="front" src={card.src} alt="card front"></img>
         <img
           className="back"
-          src="assets/images/magic-memory/cover.png"
+          src="react-games/assets/images/magic-memory/cover.png"
           onClick={handleClick}
           alt="card back"
         ></img>

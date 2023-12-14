@@ -3,18 +3,18 @@ import "./MagicMemory.css";
 import SingleCard from "./components/SingleCard.js";
 
 const cardImages = [
-  { src: "assets/images/magic-memory/helmet-1.png", matched: false },
-  { src: "assets/images/magic-memory/potion-1.png", matched: false },
-  { src: "assets/images/magic-memory/ring-1.png", matched: false },
-  { src: "assets/images/magic-memory/scroll-1.png", matched: false },
-  { src: "assets/images/magic-memory/shield-1.png", matched: false },
-  { src: "assets/images/magic-memory/sword-1.png", matched: false },
+  { src: "react-games/assets/images/magic-memory/helmet-1.png", matched: false },
+  { src: "react-games/assets/images/magic-memory/potion-1.png", matched: false },
+  { src: "react-games/assets/images/magic-memory/ring-1.png", matched: false },
+  { src: "react-games/assets/images/magic-memory/scroll-1.png", matched: false },
+  { src: "react-games/assets/images/magic-memory/shield-1.png", matched: false },
+  { src: "react-games/assets/images/magic-memory/sword-1.png", matched: false },
 ];
 
 function MagicMemory() {
-  const audio = new Audio("assets/images/magic-memory/card-flip.mp3")
-  const correct_audio = new Audio("assets/images/common/correct.mp3")
-  const succes_audio = new Audio("assets/images/common/success.mp3")
+  const audio = new Audio("react-games/assets/images/magic-memory/card-flip.mp3")
+  const correct_audio = new Audio("react-games/assets/images/common/correct.mp3")
+  const succes_audio = new Audio("react-games/assets/images/common/success.mp3")
   const [cards, setCards] = useState([]);
   const [turns, setTurns] = useState(0);
   const [choiceOne, setChoiceOne] = useState(null);

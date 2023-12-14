@@ -9,7 +9,7 @@ function PageNotFound() {
     setTimeout(() => {
       setCount(count - 1);
       if (count === 0) {
-        navigate("/react-games/games/home");
+        navigate("/games/home");
       }
       console.log(count);
     }, 1000);

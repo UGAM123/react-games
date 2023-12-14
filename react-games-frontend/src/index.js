@@ -36,9 +36,9 @@ const router = createBrowserRouter(
         <Route path="2048" element={<Game2048 />} />
         <Route path="snake" element={<Snake />} />
         <Route path="tic-tac-toe" element={<TicTacToe />} />
-        <Route path="" element={<Navigate to="/react-games/games/home" />} />
+        <Route path="" element={<Navigate to="/games/home" />} />
       </Route>
-      <Route path="" element={<Navigate to="/react-games/games/home" />} />
+      <Route path="" element={<Navigate to="/games/home" />} />
       <Route path="login" element={<Login />} />
       <Route path="*" element={<PageNotFound />} />
     </Route>

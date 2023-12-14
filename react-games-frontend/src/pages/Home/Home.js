@@ -8,7 +8,7 @@ function Home() {
       {games.map((game) => {
         return (
           <div className="grid-item" key={game.name}>
-            <Link to={"/react-games/games" + game.path} style={{ color: "white" }}>
+            <Link to={"/games" + game.path} style={{ color: "white" }}>
               <img src={game.image} alt={game.name + "-logo"} />
               <p>{game.name}</p>
             </Link>

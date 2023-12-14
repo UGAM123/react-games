@@ -167,7 +167,7 @@ function Messaging() {
 
   useEffect(() => {
     if (data.userName === "") {
-      navigate("/react-games/login");
+      navigate("/login");
     } else {
       console.log(stompClient);
       setStompClient((prevClient) => {
@@ -189,7 +189,7 @@ function Messaging() {
     <div>
       <img
         className="msg-icon"
-        src="assets/images/message_icon.png"
+        src="react-games/assets/images/message_icon.png"
         alt="msg-icon"
       />
 

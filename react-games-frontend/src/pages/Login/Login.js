@@ -27,7 +27,7 @@ function Login() {
         "user",
         JSON.stringify({ userName: userName.value, fullNameOrEmail: fullNameOrEmail.value })
       );
-      navigate("/react-games/games/home");
+      navigate("/games/home");
     }
     else{
         if(userName.value==""){

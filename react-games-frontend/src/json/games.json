@@ -1,43 +1,43 @@
 [
   {
     "name": "Magic Memory",
-    "image": "assets/images/games-logo/magic-memory.jpg",
+    "image": "react-games/assets/images/games-logo/magic-memory.jpg",
     "path": "/magic-memory"
   },
   {
     "name": "Snake",
-    "image": "assets/images/games-logo/snake.png",
+    "image": "react-games/assets/images/games-logo/snake.png",
     "path": "/snake"
   },
   {
     "name": "2048",
-    "image": "assets/images/games-logo/2048.png",
+    "image": "react-games/assets/images/games-logo/2048.png",
     "path": "/2048"
   },
 
   {
     "name": "Tic-Tac-Toe",
-    "image": "assets/images/games-logo/tic-tac-toe.png",
+    "image": "react-games/assets/images/games-logo/tic-tac-toe.png",
     "path": "/tic-tac-toe"
   },
   {
     "name": "Alien shooter",
-    "image": "assets/images/games-logo/logo.png",
+    "image": "react-games/assets/images/games-logo/logo.png",
     "path": "/alien-shooter"
   },
   {
     "name": "Tetris",
-    "image": "assets/images/games-logo/logo.png",
+    "image": "react-games/assets/images/games-logo/logo.png",
     "path": "/game-5"
   },
   {
     "name": "Dinosaur",
-    "image": "assets/images/games-logo/logo.png",
+    "image": "react-games/assets/images/games-logo/logo.png",
     "path": "/game-5"
   },
   {
     "name": "Flappy bird",
-    "image": "assets/images/games-logo/logo.png",
+    "image": "react-games/assets/images/games-logo/logo.png",
     "path": "/game-5"
   }
 ]
